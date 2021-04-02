@@ -1,0 +1,165 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "image": "img/apples.png",
+      "title": "Apples",
+      "weight": "$17.00/kg",
+      "price": "$17.00"
+    },
+    {
+      "id": 2,
+      "image": "img/banana.png",
+      "title": "Banana",
+      "weight": "$27.00/kg",
+      "price": "$27.00"
+    },
+    {
+      "id": 3,
+      "image": "img/strawberry.png",
+      "title": "Strawberry",
+      "weight": "$37.00/kg",
+      "price": "$37.00"
+    },
+    {
+      "id": 4,
+      "image": "img/orange.png",
+      "title": "Orange",
+      "weight": "$47.00/kg",
+      "price": "$47.00"
+    },
+    {
+      "id": 5,
+      "image": "img/watermelon.png",
+      "title": "Watermelon",
+      "weight": "$57.00/kg",
+      "price": "$57.00"
+    }
+  ],
+  "deals": [
+    {
+      "id": 1,     
+      "image": "img/1.jpeg"
+    },
+    {
+      "id": 2,     
+      "image": "img/2.jpeg"
+    },
+    {
+      "id": 3,     
+      "image": "img/3.jpeg"
+    },
+    {
+      "id": 4,     
+      "image": "img/4.jpeg"
+    }
+  ],
+  "promos": [
+     {
+      "id": 1,
+      "title": "30% Discount",
+      "image": "img/apples.png",
+      "description": "Order any food from app and get discount"
+    },
+    {
+      "id": 2,
+      "title": "50% Discount",
+      "image": "img/banana.png",
+      "description": "Order any food from app and get discount"
+    }
+  ],
+  "categoryMenu": [
+     {
+      "id": 1,
+      "title": "Vegetables",
+      "image": "img/veg.jpeg"
+    },
+    {
+      "id": 2,
+      "title": "Fruits",
+      "image": "img/fruits.jpeg"
+    },
+    {
+      "id": 3,
+      "title": "Meat",
+      "image": "img/meat.jpeg"
+    },
+     {
+      "id": 4,
+      "title": "Vegetables",
+      "image": "img/veg.jpeg"
+    },
+    {
+      "id": 5,
+      "title": "Fruits",
+      "image": "img/fruits.jpeg"
+    },
+    {
+      "id": 6,
+      "title": "Meat",
+      "image": "img/meat.jpeg"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "Vegetables",
+      "image": "https://img.icons8.com/cute-clipart/64/000000/carrot.png"
+    },
+    {
+      "id": 2,
+      "title": "Fruits",
+      "image": "https://img.icons8.com/cute-clipart/64/000000/corn.png"
+    },
+    {
+      "id": 3,
+      "title": "Meat",
+      "image": "https://img.icons8.com/cute-clipart/64/000000/rack-of-lamb.png"
+    },
+    {
+      "id": 4,
+      "title": "Fish",
+      "image": "https://img.icons8.com/dusk/64/000000/fish-and-vegetables.png"
+    },
+    {
+      "id": 5,
+      "title": "Drinks",
+      "image": "https://img.icons8.com/cute-clipart/64/000000/champagne-bottle.png"
+    },
+    {
+      "id": 6,
+      "title": "Bread",
+      "image": "https://img.icons8.com/cute-clipart/64/000000/bread-and-rolling-pin.png"
+    },
+    {
+      "id": 7,
+      "title": "Vegetables",
+      "image": "https://img.icons8.com/cute-clipart/64/000000/carrot.png"
+    },
+    {
+      "id": 8,
+      "title": "Fruits",
+      "image": "https://img.icons8.com/cute-clipart/64/000000/corn.png"
+    },
+    {
+      "id": 9,
+      "title": "Meat",
+      "image": "https://img.icons8.com/cute-clipart/64/000000/rack-of-lamb.png"
+    },
+    {
+      "id": 10,
+      "title": "Fish",
+      "image": "https://img.icons8.com/dusk/64/000000/fish-and-vegetables.png"
+    },
+    {
+      "id": 11,
+      "title": "Drinks",
+      "image": "https://img.icons8.com/cute-clipart/64/000000/champagne-bottle.png"
+    },
+    {
+      "id": 12,
+      "title": "Bread",
+      "image": "https://img.icons8.com/cute-clipart/64/000000/bread-and-rolling-pin.png"
+    }
+  ]
+}

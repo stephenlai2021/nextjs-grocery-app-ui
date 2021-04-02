@@ -1,65 +1,103 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Link from "next/link";
+import fs from "fs/promises";
+import path from "path";
 
-export default function Home() {
+export const getStaticProps = async () => {
+  const filePath = path.join(process.cwd(), "data", "db.json");
+  const jsonData = await fs.readFile(filePath);
+  const data = JSON.parse(jsonData);
+
+  return {
+    props: {
+      categories: data.categoryMenu,
+      promos: data.promos,
+      deals: data.deals,
+    },
+  };
+};
+
+export default function Home({ categories, promos, deals }) {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Grocery Mobile App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <header>
+        <nav>
+          <div className="info">
+            <p>Hey!</p>
+            <p>Let's search your grocery food</p>
+          </div>
+          <div
+            className="img"
+            style={{ backgroundImage: "url(img/user.jpg)" }}
+          ></div>
+        </nav>
+        <div className="search">
+          <span className="las la-search"></span>
+          <input type="text" placeholder="Search your daily Grocery food ..." />
+        </div>
+      </header>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+      <main>
+        <div className="categories section-wrapper">
+          <div className="flex-header">
+            <h2>Categories</h2>
+            <Link href="/category">
+              <a>See all</a>
+            </Link>
+          </div>
+          <div className="items">
+            {categories.map((category) => (
+              <div className="item" key={category.id}>
+                <div
+                  className="item-img"
+                  style={{ backgroundImage: `url(${category.image})` }}
+                ></div>
+                <h4>{category.title}</h4>
+              </div>
+            ))}
+          </div>
+        </div>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+        <div className="promo">
+          <div className="items promo-items">
+            {promos.map((promo) => (
+              <div className="promo-item" key={promo.id}>
+                <div
+                  className="promo-img"
+                  style={{ backgroundImage: `url(${promo.image})` }}
+                ></div>
+                <div className="promo-info">
+                  <h3>{promo.title}</h3>
+                  <p>{promo.description}</p>
+                  <a href="">Order now</a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <div className="popular section-wrapper">
+          <div className="flex-header">
+            <h2>Popular deals</h2>
+            <a href="">See all</a>
+          </div>
+          <div className="items">
+            {deals.map((deal) => (
+              <div className="popular-item" key={deal.id}>
+                <div
+                  className="popular-img"
+                  style={{ backgroundImage: `url(${deal.image})` }}
+                ></div>
+              </div>
+            ))}
+          </div>
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
-  )
+  );
 }
