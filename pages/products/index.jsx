@@ -1,16 +1,26 @@
 import React from "react";
-import fs from "fs/promises";
-import path from "path";
 import Link from "next/link";
 
 export const getStaticProps = async () => {
-  const filePath = path.join(process.cwd(), "data", "db.json");
-  const jsonData = await fs.readFile(filePath);
-  const data = JSON.parse(jsonData);
+  const res = await fetch(
+    "https://grocery-app-ui-nextjs-default-rtdb.firebaseio.com/products.json"
+  );
+  const data = await res.json();
+
+  const products = [];
+  for (const key in data) {
+    products.push({
+      id: key,
+      image: data[key].image,
+      title: data[key].title,
+      price: data[key].price,
+      weight: data[key].weight,
+    });
+  }
 
   return {
     props: {
-      products: data.products,
+      products,
     },
   };
 };

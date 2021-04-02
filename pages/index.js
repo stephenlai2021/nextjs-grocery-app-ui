@@ -1,18 +1,40 @@
 import Head from "next/head";
 import Link from "next/link";
-import fs from "fs/promises";
-import path from "path";
 
 export const getStaticProps = async () => {
-  const filePath = path.join(process.cwd(), "data", "db.json");
-  const jsonData = await fs.readFile(filePath);
-  const data = JSON.parse(jsonData);
+  const res1 = await fetch('https://grocery-app-ui-nextjs-default-rtdb.firebaseio.com/categories.json')
+  const data1 = await res1.json()  
+  
+  const res2 = await fetch(
+    "https://grocery-app-ui-nextjs-default-rtdb.firebaseio.com/promos.json"
+  );
+  const data2 = await res2.json();
+
+  const res3 = await fetch(
+    "https://grocery-app-ui-nextjs-default-rtdb.firebaseio.com/deals.json"
+  );
+  const data3 = await res3.json();
+
+  const categories = []
+  for (const key in data1) {
+    categories.push({ id: key, image: data1[key].image, title: data1[key].title })
+  }
+
+  const promos = []
+  for (const key in data2) {
+    promos.push({ id: key, image: data2[key].image, title: data2[key].title, description: data2[key].description })
+  }
+  
+  const deals = []
+  for (const key in data3) {
+    deals.push({ id: key, image: data3[key].image })
+  }
 
   return {
     props: {
-      categories: data.categoryMenu,
-      promos: data.promos,
-      deals: data.deals,
+      categories,
+      promos,
+      deals
     },
   };
 };
@@ -33,7 +55,7 @@ export default function Home({ categories, promos, deals }) {
           </div>
           <div
             className="img"
-            style={{ backgroundImage: "url(img/user.jpg)" }}
+            style={{ backgroundImage: "url(img/handsome.png)" }}
           ></div>
         </nav>
         <div className="search">
